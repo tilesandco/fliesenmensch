@@ -402,6 +402,63 @@
         line-height: 1.7;
       }
 
+      .gallery-section {
+        max-width: 1200px;
+        margin: 0 auto 100px;
+        padding: 0 30px;
+      }
+
+      .gallery-header {
+        text-align: center;
+        margin-bottom: 28px;
+      }
+
+      .gallery-header h2 {
+        margin-top: 14px;
+        font-size: clamp(2rem, 3vw, 3rem);
+        letter-spacing: -0.05em;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .gallery-card {
+        background: rgba(255,255,255,0.75);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 16px 38px rgba(17,17,17,0.05);
+      }
+
+      .gallery-image {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ece7df, #d9d2ca);
+      }
+
+      .gallery-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-card:hover .gallery-image img {
+        transform: scale(1.04);
+      }
+
+      .gallery-caption {
+        padding: 16px 18px 20px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
       @media (max-width: 900px) {
         .hero {
           flex-direction: column;
@@ -423,6 +480,10 @@
         .competence-grid {
           grid-template-columns: 1fr;
         }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
 
       @media (max-width: 768px) {
@@ -440,7 +501,8 @@
       @media (max-width: 560px) {
         .hero,
         .slider-section,
-        .competence-section {
+        .competence-section,
+        .gallery-section {
           padding-left: 16px;
           padding-right: 16px;
         }
@@ -455,6 +517,10 @@
 
         .btn {
           width: 100%;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
         }
       }
     </style>
@@ -477,9 +543,9 @@
 
     <main class="hero">
       <div class="hero-text">
-        <h1>Fliesen.<br />Fliesen.<br />Fliesen.</h1>
+        <h1>Fliesen.<br />Marmor.<br />Stein.</h1>
         <p>
-          Fliesen und &amp; Natursteine sind für die Ewigkeit und deswegen bedarf es bei dem Handwerk echte Präzision und vorausschauende Planung bis zur letzten Fuge.
+          Fliesen, Marmor &amp; Steine sind für die Ewigkeit und deswegen bedarf es bei dem Handwerk echte Präzision und vorausschauende Planung bis zur letzten Fuge.
         </p>
       </div>
 
@@ -539,13 +605,13 @@
     <section class="competence-section" aria-label="Kompetenzbereich">
       <div class="competence-header">
         <span class="eyebrow">Kompetenz</span>
-        <h2>Kompetenz</h2>
+        <h2>Unsere Schwerpunkte</h2>
       </div>
 
       <div class="competence-grid">
         <article class="competence-card">
           <div class="competence-number">01</div>
-          <h3>Maßarbeit</h3>
+          <h3>Fliesenarbeiten</h3>
           <p>
             Präzise Verlegung von Boden- und Wandfliesen mit Fokus auf saubere Linien,
             exakte Fugen und langlebige Qualität.
@@ -554,19 +620,58 @@
 
         <article class="competence-card">
           <div class="competence-number">02</div>
-          <h3>Abdichtung nach DIN 18534</h3>
+          <h3>Marmor &amp; Naturstein</h3>
           <p>
-            Man unterscheidet zwischen drei Gruppen von Abdichtungsstoffen. Der richtige Einsatz entscheidet.
+            Perfekte Bearbeitung und hochwertige Verarbeitung von Naturstein für elegante
+            Oberflächen mit Charakter und Wiedererkennungswert.
           </p>
         </article>
 
         <article class="competence-card">
           <div class="competence-number">03</div>
-          <h3>Ratgeber</h3>
+          <h3>Sanierung &amp; Modernisierung</h3>
           <p>
-            Hilfreiche Tipps bei der Umsetzung von Projekten, sowie Empfehlungen von Baustoffen.
+            Innovative Lösungen für Altbau, Modernisierung und Detailarbeiten mit Blick auf
+            Funktion, Haltbarkeit und Ästhetik.
           </p>
         </article>
+      </div>
+    </section>
+
+    <section class="gallery-section" aria-label="Bildergalerie">
+      <div class="gallery-header">
+        <span class="eyebrow">Galerie</span>
+        <h2>Mehr Projektdetails</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <figure class="gallery-card">
+          <div class="gallery-image">
+            <img src="./IMG_0943.jpg" alt="Projektbild 1" />
+          </div>
+          <figcaption class="gallery-caption">Projektbild 1</figcaption>
+        </figure>
+
+        <figure class="gallery-card">
+          <div class="gallery-image">
+            <img src="./IMG_2270.HEIC" alt="Projektbild 2" />
+          </div>
+          <figcaption class="gallery-caption">Projektbild 2</figcaption>
+        </figure>
+
+        <figure class="gallery-card">
+          <div class="gallery-image">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" alt="Projektbild 3" />
+          </div>
+          <figcaption class="gallery-caption">Projektbild 3</figcaption>
+        </figure>
+
+        <figure class="gallery-card">
+          <div class="gallery-image">
+            <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=900&q=80" alt="Projektbild 4" />
+          </div>
+          <figcaption class="gallery-caption">Projektbild 4</figcaption>
+        </figure>
       </div>
     </section>
 
