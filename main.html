@@ -348,6 +348,60 @@
         transform: translateY(-2px);
       }
 
+      .competence-section {
+        max-width: 1200px;
+        margin: 0 auto 90px;
+        padding: 0 30px;
+      }
+
+      .competence-header {
+        text-align: center;
+        margin-bottom: 28px;
+      }
+
+      .competence-header h2 {
+        font-size: clamp(2rem, 3vw, 3rem);
+        letter-spacing: -0.05em;
+        margin-top: 14px;
+      }
+
+      .competence-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .competence-card {
+        background: rgba(255,255,255,0.75);
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        padding: 28px 24px;
+        box-shadow: 0 18px 40px rgba(17, 17, 17, 0.04);
+      }
+
+      .competence-number {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--accent-soft), #fff);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        margin-bottom: 18px;
+      }
+
+      .competence-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+      }
+
+      .competence-card p {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
       @media (max-width: 900px) {
         .hero {
           flex-direction: column;
@@ -365,6 +419,10 @@
         .slider-panel {
           min-height: 440px;
         }
+
+        .competence-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 768px) {
@@ -381,7 +439,8 @@
 
       @media (max-width: 560px) {
         .hero,
-        .slider-section {
+        .slider-section,
+        .competence-section {
           padding-left: 16px;
           padding-right: 16px;
         }
@@ -418,9 +477,7 @@
 
     <main class="hero">
       <div class="hero-text">
-        <h1>Fliesen.<br>
-        Mamor.<br>
-        Stein.</h1>
+        <h1>Fliesen.<br />Marmor.<br />Stein.</h1>
         <p>
           Fliesen, Marmor &amp; Steine sind für die Ewigkeit und deswegen bedarf es bei dem Handwerk echte Präzision und vorausschauende Planung bis zur letzten Fuge.
         </p>
@@ -448,7 +505,7 @@
 
           <div class="slide-meta">
             <span class="meta-badge">Rückblick</span>
-            <span class="meta-label"></span>
+            <span class="meta-label">Innenausbau</span>
           </div>
 
           <div class="slider-controls">
@@ -472,10 +529,46 @@
             </div>
 
             <div class="cta-row">
-              <a href="#" class="btn primary">-</a>
+              <a href="#" class="btn primary">Mehr erfahren</a>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="competence-section" aria-label="Kompetenzbereich">
+      <div class="competence-header">
+        <span class="eyebrow">Kompetenz</span>
+        <h2>Unsere Schwerpunkte</h2>
+      </div>
+
+      <div class="competence-grid">
+        <article class="competence-card">
+          <div class="competence-number">01</div>
+          <h3>Fliesenarbeiten</h3>
+          <p>
+            Präzise Verlegung von Boden- und Wandfliesen mit Fokus auf saubere Linien,
+            exakte Fugen und langlebige Qualität.
+          </p>
+        </article>
+
+        <article class="competence-card">
+          <div class="competence-number">02</div>
+          <h3>Marmor &amp; Naturstein</h3>
+          <p>
+            Perfekte Bearbeitung und hochwertige Verarbeitung von Naturstein für elegante
+            Oberflächen mit Charakter und Wiedererkennungswert.
+          </p>
+        </article>
+
+        <article class="competence-card">
+          <div class="competence-number">03</div>
+          <h3>Sanierung &amp; Modernisierung</h3>
+          <p>
+            Innovative Lösungen für Altbau, Modernisierung und Detailarbeiten mit Blick auf
+            Funktion, Haltbarkeit und Ästhetik.
+          </p>
+        </article>
       </div>
     </section>
 
