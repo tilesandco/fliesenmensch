@@ -156,7 +156,7 @@
 
       .slider-panel {
         position: relative;
-        min-height: 550px;
+        height: 550px;
         background: #ddd;
       }
 
@@ -176,6 +176,7 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.5s ease, visibility 0.5s ease;
+        overflow: hidden;
       }
 
       .slide.active {
@@ -533,7 +534,7 @@
         }
 
         .slider-panel {
-          min-height: 440px;
+          height: 440px;
         }
 
         .competence-grid {
@@ -630,7 +631,7 @@
               <img src="./IMG_0943.jpg" alt="Moderne Fliesenarbeit" />
             </div>
             <div class="slide">
-              <img src="./IMG_2270.HEIC" alt="Eleganter Wohnraum mit Stein" />
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Eleganter Wohnraum mit Stein" />
             </div>
             <div class="slide">
               <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Hochwertige Oberflächen und Materialmix" />
@@ -760,22 +761,27 @@
       const slides = document.querySelectorAll('.slide');
       const prevBtn = document.querySelector('.prev');
       const nextBtn = document.querySelector('.next');
-      let currentSlide = 0;
 
-      function showSlide(index) {
-        currentSlide = (index + slides.length) % slides.length;
+      if (!slides.length || !prevBtn || !nextBtn) {
+        console.warn('Slider: missing slides or controls.');
+      } else {
+        let currentSlide = 0;
 
-        slides.forEach((slide, i) => {
-          slide.classList.toggle('active', i === currentSlide);
-        });
+        function showSlide(index) {
+          currentSlide = (index + slides.length) % slides.length;
+
+          slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === currentSlide);
+          });
+        }
+
+        prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+        setInterval(() => {
+          showSlide(currentSlide + 1);
+        }, 4500);
       }
-
-      prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
-      nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
-
-      setInterval(() => {
-        showSlide(currentSlide + 1);
-      }, 4500);
     </script>
   </body>
 </html>
