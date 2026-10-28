@@ -1,173 +1,503 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Main Page</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Page</title>
+    <style>
+      :root {
+        --bg: #f5f1eb;
+        --panel: #fffdf9;
+        --text: #1d1b1a;
+        --muted: #5e5a57;
+        --line: rgba(29, 27, 26, 0.08);
+        --accent: #c48a5e;
+        --accent-soft: #f0dfd0;
+        --shadow: 0 24px 60px rgba(24, 18, 13, 0.1);
+      }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      color: #222;
-    }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: url('./terrazo.jpg');
-      background-position: center;
-    }
+      body {
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
 
-    .nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 18px 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+      a {
+        text-decoration: none;
+      }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #111;
-    }
+      header {
+        background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('./terrazo.jpg');
+        background-size: cover;
+        background-position: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
 
-    .logo-box {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #1e90ff, #0057b8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1rem;
-      color: white;
-      font-weight: bold;
-    }
-
-    .menu {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-    }
-
-    .menu a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-
-    .menu a:hover {
-      color: #0057b8;
-    }
-
-    .hero {
-      max-width: 1200px;
-      margin: 60px auto;
-      padding: 0 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
-
-    .hero-text {
-      flex: 1;
-    }
-
-    .hero-text h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: #111;
-    }
-
-    .hero-text p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: #555;
-      max-width: 600px;
-    }
-
-    .hero-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .image-placeholder {
-      width: 100%;
-      max-width: 500px;
-      height: 320px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #dfeeff, #b8d6ff);
-      border: 1px solid #c7dfff;
-    }
-
-    @media (max-width: 768px) {
       .nav {
-        flex-direction: column;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
         gap: 12px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: #111;
+      }
+
+      .logo-box {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #1e90ff, #0057b8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
       }
 
       .menu {
-        gap: 18px;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .menu a {
+        color: #2d2a29;
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+
+      .menu a:hover {
+        color: #0057b8;
       }
 
       .hero {
-        flex-direction: column;
-        text-align: center;
+        max-width: 1200px;
+        margin: 60px auto 30px;
+        padding: 0 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+      }
+
+      .hero-text {
+        flex: 1;
       }
 
       .hero-text h1 {
-        font-size: 2.2rem;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1.05;
+        margin-bottom: 20px;
+        color: #111;
+        letter-spacing: -0.05em;
       }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav class="nav">
-      <div class="logo">
-        <div class="logo-box">L</div>
-        <span>fliesenmensch</span>
+
+      .hero-text p {
+        font-size: 1.08rem;
+        line-height: 1.8;
+        color: #555;
+        max-width: 620px;
+      }
+
+      .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .image-placeholder {
+        width: 100%;
+        max-width: 520px;
+        height: 360px;
+        border-radius: 26px;
+        background: linear-gradient(135deg, #e6f0ff, #cfe0ff);
+        border: 1px solid #d7e6ff;
+        box-shadow: var(--shadow);
+        background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .slider-section {
+        max-width: 1200px;
+        margin: 40px auto 80px;
+        padding: 0 30px;
+      }
+
+      .slider-card {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        min-height: 550px;
+        border-radius: 32px;
+        overflow: hidden;
+        background: rgba(255,255,255,0.45);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .slider-panel {
+        position: relative;
+        min-height: 550px;
+        background: #ddd;
+      }
+
+      .slides {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+
+      .slide.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(28, 20, 14, 0.22), rgba(28, 20, 14, 0.06));
+      }
+
+      .slide-meta {
+        position: absolute;
+        left: 26px;
+        bottom: 24px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #fff;
+      }
+
+      .meta-badge {
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.2);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        backdrop-filter: blur(6px);
+      }
+
+      .meta-label {
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.95;
+      }
+
+      .slider-controls {
+        position: absolute;
+        right: 24px;
+        bottom: 22px;
+        z-index: 2;
+        display: flex;
+        gap: 10px;
+      }
+
+      .nav-btn {
+        width: 46px;
+        height: 46px;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.18);
+        backdrop-filter: blur(4px);
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      .nav-btn:hover {
+        background: rgba(255,255,255,0.24);
+        transform: translateY(-2px);
+      }
+
+      .text-panel {
+        display: flex;
+        align-items: center;
+        padding: 52px 42px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(249,245,240,0.9));
+      }
+
+      .text-box {
+        max-width: 430px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        border: 1px solid rgba(196, 138, 94, 0.2);
+        color: var(--accent);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .text-box h2 {
+        margin-top: 18px;
+        font-size: clamp(2.2rem, 3vw, 3.2rem);
+        line-height: 1.02;
+        letter-spacing: -0.05em;
+        margin-bottom: 16px;
+      }
+
+      .text-box p {
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 1.02rem;
+        margin-bottom: 24px;
+      }
+
+      .feature-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 26px;
+      }
+
+      .feature-item {
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.5);
+        border: 1px solid var(--line);
+        color: #2c2a2a;
+        font-size: 0.9rem;
+      }
+
+      .feature-item::before {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        padding: 0 22px;
+        border-radius: 999px;
+        font-weight: 600;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, #b97b5d, #d7a888);
+        color: white;
+        box-shadow: 0 16px 24px rgba(185, 123, 93, 0.22);
+      }
+
+      .btn.secondary {
+        color: var(--text);
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.45);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero-text p {
+          margin: 0 auto;
+        }
+
+        .slider-card {
+          grid-template-columns: 1fr;
+        }
+
+        .slider-panel {
+          min-height: 440px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav {
+          flex-direction: column;
+          gap: 14px;
+        }
+
+        .menu {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .hero,
+        .slider-section {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .text-panel {
+          padding: 34px 24px;
+        }
+
+        .cta-row {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <div class="logo">
+          <div class="logo-box">L</div>
+          <span>fliesenmensch</span>
+        </div>
+
+        <ul class="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Über</a></li>
+          <li><a href="#">Kompetenz</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <div class="hero-text">
+        <h1>Wir freuen Sie wilkommen zu heißen.</h1>
+        <p>
+          Fliesen, Marmor & Steine sind für die Ewigkeit und deswegen bedarf es bei dem Handwerk echte Präzision und vorausschauende Planung bis zur letzten Fuge.
+        </p>
       </div>
 
-      <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Über</a></li>
-        <li><a href="#">Kompetenz</a></li>
-      </ul>
-    </nav>
-  </header>
+      <div class="hero-image">
+        <div class="image-placeholder"></div>
+      </div>
+    </main>
 
-  <main class="hero">
-    <div class="hero-text">
-      <h1>Wir freuen Sie wilkommen zu heißen.</h1>
-      <p>
-        Fliesen, Mamor & Steine sind für die Ewigkeit und deswegen bedarf es bei dem Handwerk echte Präzision und vorausschauende Planung bis zur letzten Fuge.
-      </p>
-    </div>
+    <section class="slider-section" aria-label="Projekt-Slider">
+      <div class="slider-card">
+        <div class="slider-panel">
+          <div class="slides">
+            <div class="slide active">
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Moderne Fliesenarbeit" />
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Eleganter Wohnraum mit Stein" />
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Hochwertige Oberflächen und Materialmix" />
+            </div>
+          </div>
 
-    <div class="hero-image">
-      <div class="image-placeholder"></div>
-    </div>
-  </main>
-</body>
+          <div class="slide-meta">
+            <span class="meta-badge">Projekt</span>
+            <span class="meta-label">Premium Innenausbau</span>
+          </div>
+
+          <div class="slider-controls">
+            <button class="nav-btn prev" aria-label="Vorheriges Bild">&#8249;</button>
+            <button class="nav-btn next" aria-label="Nächstes Bild">&#8250;</button>
+          </div>
+        </div>
+
+        <div class="text-panel">
+          <div class="text-box">
+            <span class="eyebrow">Unsere Arbeiten</span>
+            <h2>Materialien mit Charakter und Klarheit.</h2>
+            <p>
+              Wir setzen auf hochwertige Materialien, präzise Verarbeitung und eine ruhige, zeitlose Ästhetik. Jede Fläche wird so geplant, dass sie nicht nur schön wirkt, sondern auch langfristig überzeugt.
+            </p>
+
+            <div class="feature-list">
+              <span class="feature-item">Marmor</span>
+              <span class="feature-item">Fliesen</span>
+              <span class="feature-item">Stein</span>
+            </div>
+
+            <div class="cta-row">
+              <a href="#" class="btn primary">Mehr erfahren</a>
+              <a href="#" class="btn secondary">Anfrage</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const slides = document.querySelectorAll('.slide');
+      const prevBtn = document.querySelector('.prev');
+      const nextBtn = document.querySelector('.next');
+      let currentSlide = 0;
+
+      function showSlide(index) {
+        currentSlide = (index + slides.length) % slides.length;
+
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === currentSlide);
+        });
+      }
+
+      prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+      nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+      setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, 4500);
+    </script>
+  </body>
 </html>
