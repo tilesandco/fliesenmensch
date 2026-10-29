@@ -519,6 +519,101 @@
         color: var(--text);
       }
 
+      .typewriter-section {
+        max-width: 1200px;
+        margin: 0 auto 100px;
+        padding: 0 30px;
+      }
+
+      .typewriter-panel {
+        position: relative;
+        min-height: 500px;
+        border-radius: 32px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: linear-gradient(135deg, rgba(17, 17, 17, 0.62), rgba(17, 17, 17, 0.4)), url('./terrazo.jpg');
+        background-size: cover;
+        background-position: center;
+        box-shadow: var(--shadow);
+      }
+
+      .typewriter-panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(12, 10, 9, 0.74), rgba(12, 10, 9, 0.18));
+      }
+
+      .typewriter-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        min-height: 500px;
+        align-items: center;
+        padding: 56px 48px;
+      }
+
+      .typewriter-box {
+        max-width: 660px;
+        color: #fff;
+      }
+
+      .typewriter-box .eyebrow {
+        background: rgba(255,255,255,0.14);
+        border-color: rgba(255,255,255,0.18);
+        color: #f9f1e9;
+      }
+
+      .typewriter-text {
+        margin-top: 18px;
+        min-height: 1.2em;
+        font-size: clamp(2.2rem, 4vw, 4.3rem);
+        line-height: 1.08;
+        letter-spacing: -0.06em;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid rgba(255,255,255,0.9);
+        width: 0;
+        animation: typing 3.2s steps(30, end) forwards, blink 0.8s step-end infinite 3.2s;
+      }
+
+      .typewriter-box p {
+        margin-top: 18px;
+        max-width: 600px;
+        color: rgba(255,255,255,0.82);
+        line-height: 1.8;
+        font-size: 1.04rem;
+      }
+
+      .typewriter-box .cta-row {
+        margin-top: 26px;
+      }
+
+      .typewriter-box .btn.primary {
+        background: linear-gradient(135deg, #d6a780, #b77b5d);
+      }
+
+      .typewriter-box .btn.secondary {
+        background: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.26);
+        color: white;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+
       @media (max-width: 900px) {
         .hero {
           flex-direction: column;
@@ -567,13 +662,25 @@
         .slider-section,
         .competence-section,
         .history-section,
-        .gallery-section {
+        .gallery-section,
+        .typewriter-section {
           padding-left: 16px;
           padding-right: 16px;
         }
 
         .text-panel {
           padding: 34px 24px;
+        }
+
+        .typewriter-content {
+          padding: 40px 24px;
+        }
+
+        .typewriter-text {
+          white-space: normal;
+          border-right: none;
+          width: 100%;
+          animation: none;
         }
 
         .cta-row {
@@ -754,6 +861,25 @@
           </div>
           <figcaption class="gallery-caption">Naturstein</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section class="typewriter-section" aria-label="Typewriter Abschnitt">
+      <div class="typewriter-panel">
+        <div class="typewriter-content">
+          <div class="typewriter-box">
+            <span class="eyebrow">Handwerk mit Charakter</span>
+            <h2 class="typewriter-text">Wir schaffen Oberflächen mit Charakter.</h2>
+            <p>
+              Präzision, Materialgefühl und eine ruhige Ästhetik geben jedem Raum eine eigene Atmosphäre – langlebig, hochwertig und bis in die letzte Fuge durchdacht.
+            </p>
+
+            <div class="cta-row">
+              <a href="#" class="btn primary">Termin vereinbaren</a>
+              <a href="#" class="btn secondary">Projekt ansehen</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
