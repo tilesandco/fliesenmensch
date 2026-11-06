@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main Page</title>
+    <title>Fliesenmensch – Fliesenhandwerk</title>
     <style>
       :root {
         --bg: #f5f1eb;
@@ -16,911 +16,221 @@
         --shadow: 0 24px 60px rgba(24, 18, 13, 0.1);
       }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        font-family: Arial, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-      }
-
-      a {
-        text-decoration: none;
-      }
-
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); }
+      a { text-decoration: none; }
       header {
-        background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('./terrazo.jpg');
-        background-size: cover;
-        background-position: center;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-
-      .nav {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px 30px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-weight: 700;
-        font-size: 1.2rem;
-        color: #111;
-      }
-
-      .logo-box {
-        width: 42px;
-        height: 42px;
-        border: 1px grey;
-        background: linear-gradient(135deg, grey, darkgrey);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1rem;
-        font-weight: bold;
-      }
-
-      .menu {
-        display: flex;
-        gap: 30px;
-        list-style: none;
-      }
-
-      .menu a {
-        color: #2d2a29;
-        font-weight: 600;
-        transition: color 0.2s ease;
-      }
-
-      .menu a:hover {
-        color: #0057b8;
-      }
-
-      .hero {
-        max-width: 1200px;
-        margin: 60px auto 30px;
-        padding: 0 30px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 50px;
-      }
-
-      .hero-text {
-        flex: 1;
-      }
-
-      .hero-text h1 {
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        line-height: 1.05;
-        margin-bottom: 20px;
-        color: #111;
-        letter-spacing: -0.05em;
-      }
-
-      .hero-text p {
-        font-size: 1.08rem;
-        line-height: 1.8;
-        color: #555;
-        max-width: 620px;
-      }
-
-      .hero-image {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-      }
-
-      .image-placeholder {
-        width: 100%;
-        max-width: 520px;
-        height: 360px;
-        border-radius: 26px;
-        background: linear-gradient(135deg, #e6f0ff, #cfe0ff);
-        border: 1px solid #d7e6ff;
-        box-shadow: var(--shadow);
-        background-image: url('./marmor_travertin_fliese.jpg');
-        background-size: cover;
-        background-position: center;
-      }
-
-      .slider-section {
-        max-width: 1200px;
-        margin: 40px auto 80px;
-        padding: 0 30px;
-      }
-
-      .slider-card {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        min-height: 550px;
-        border-radius: 32px;
-        overflow: hidden;
-        background: rgba(255,255,255,0.45);
-        border: 1px solid var(--line);
-        box-shadow: var(--shadow);
-      }
-
-      .slider-panel {
-        position: relative;
-        height: 550px;
-        background: #ddd;
-      }
-
-      .slides {
-        position: relative;
-        width: 100%;
-        height: 100%;
-      }
-
-      .img {
-        background-position: center;
-      }
-
-      .slide {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.5s ease, visibility 0.5s ease;
-        overflow: hidden;
-      }
-
-      .slide.active {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .slide::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, rgba(28, 20, 14, 0.22), rgba(28, 20, 14, 0.06));
-      }
-
-      .slide-meta {
-        position: absolute;
-        left: 26px;
-        bottom: 24px;
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        color: #fff;
-      }
-
-      .meta-badge {
-        padding: 8px 14px;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.12);
-        border: 1px solid rgba(255,255,255,0.2);
-        font-size: 11px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        backdrop-filter: blur(6px);
-      }
-
-      .meta-label {
-        font-size: 13px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        opacity: 0.95;
-      }
-
-      .slider-controls {
-        position: absolute;
-        right: 24px;
-        bottom: 22px;
-        z-index: 2;
-        display: flex;
-        gap: 10px;
-      }
-
-      .nav-btn {
-        width: 46px;
-        height: 46px;
-        border: 0;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.18);
-        backdrop-filter: blur(4px);
-        color: white;
-        font-size: 28px;
-        cursor: pointer;
-        transition: transform 0.2s ease, background 0.2s ease;
-      }
-
-      .nav-btn:hover {
-        background: rgba(255,255,255,0.24);
-        transform: translateY(-2px);
-      }
-
-      .text-panel {
-        display: flex;
-        align-items: center;
-        padding: 52px 42px;
-        background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(249,245,240,0.9));
-      }
-
-      .text-box {
-        max-width: 430px;
-      }
-
-      .eyebrow {
-        display: inline-block;
-        padding: 8px 14px;
-        border-radius: 999px;
-        background: var(--accent-soft);
-        border: 1px solid rgba(196, 138, 94, 0.2);
-        color: var(--accent);
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .text-box h2 {
-        margin-top: 18px;
-        font-size: clamp(2.2rem, 3vw, 3.2rem);
-        line-height: 1.02;
-        letter-spacing: -0.05em;
-        margin-bottom: 16px;
-      }
-
-      .text-box p {
-        color: var(--muted);
-        line-height: 1.8;
-        font-size: 1.02rem;
-        margin-bottom: 24px;
-      }
-
-      .feature-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-bottom: 26px;
-      }
-
-      .feature-item {
-        padding: 10px 14px;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.5);
-        border: 1px solid var(--line);
-        color: #2c2a2a;
-        font-size: 0.9rem;
-      }
-
-      .feature-item::before {
-        content: "";
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--accent);
-        margin-right: 8px;
-        vertical-align: middle;
-      }
-
-      .cta-row {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 50px;
-        padding: 0 22px;
-        border-radius: 999px;
-        font-weight: 600;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .btn.primary {
-        background: linear-gradient(135deg, #b97b5d, #d7a888);
-        color: white;
-        box-shadow: 0 16px 24px rgba(185, 123, 93, 0.22);
-      }
-
-      .btn.secondary {
-        color: var(--text);
-        border: 1px solid var(--line);
-        background: rgba(255,255,255,0.45);
-      }
-
-      .btn:hover {
-        transform: translateY(-2px);
-      }
-
-      .competence-section {
-        max-width: 1200px;
-        margin: 0 auto 90px;
-        padding: 0 30px;
-      }
-
-      .competence-header {
-        text-align: center;
-        margin-bottom: 28px;
-      }
-
-      .competence-header h2 {
-        font-size: clamp(2rem, 3vw, 3rem);
-        letter-spacing: -0.05em;
-        margin-top: 14px;
-      }
-
-      .competence-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 24px;
-      }
-
-      .competence-card {
-        background: rgba(255,255,255,0.75);
-        border: 1px solid var(--line);
-        border-radius: 26px;
-        padding: 28px 24px;
-        box-shadow: 0 18px 40px rgba(17, 17, 17, 0.04);
-      }
-
-      .competence-number {
-        width: 52px;
-        height: 52px;
-        border-radius: 16px;
-        background: linear-gradient(135deg, var(--accent-soft), #fff);
-        color: var(--accent);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        margin-bottom: 18px;
-      }
-
-      .competence-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 12px;
-      }
-
-      .competence-card p {
-        color: var(--muted);
-        line-height: 1.7;
-      }
-
-      .history-section {
-        max-width: 1200px;
-        margin: 0 auto 100px;
-        padding: 0 30px;
-      }
-
-      .history-header {
-        text-align: center;
-        margin-bottom: 32px;
-      }
-
-      .history-header h2 {
-        margin-top: 14px;
-        font-size: clamp(2rem, 3vw, 3rem);
-        letter-spacing: -0.05em;
-      }
-
-      .history-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 22px;
-      }
-
-      .history-card {
-        background: rgba(255,255,255,0.75);
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        padding: 24px 22px;
-        box-shadow: 0 18px 40px rgba(17, 17, 17, 0.04);
-      }
-
-      .history-year {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 90px;
-        padding: 8px 12px;
-        border-radius: 999px;
-        background: var(--accent-soft);
-        color: var(--accent);
-        font-weight: 700;
-        margin-bottom: 18px;
-      }
-
-      .history-card h3 {
-        font-size: 1.38rem;
-        margin-bottom: 12px;
-      }
-
-      .history-card p {
-        color: var(--muted);
-        line-height: 1.7;
-      }
-
-      .gallery-section {
-        max-width: 1200px;
-        margin: 0 auto 100px;
-        padding: 0 30px;
-      }
-
-      .gallery-header {
-        text-align: center;
-        margin-bottom: 28px;
-      }
-
-      .gallery-header h2 {
-        margin-top: 14px;
-        font-size: clamp(2rem, 3vw, 3rem);
-        letter-spacing: -0.05em;
-      }
-
-      .gallery-grid {
-        column-count: 4;
-        column-gap: 20px;
-      }
-
-      .gallery-card {
-        display: inline-block;
-        width: 100%;
-        margin: 0 0 20px;
-        background: rgba(255,255,255,0.75);
-        border: 1px solid var(--line);
-        border-radius: 22px;
-        overflow: hidden;
-        box-shadow: 0 16px 38px rgba(17,17,17,0.05);
-        break-inside: avoid;
-      }
-
-      .gallery-image {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-        background: linear-gradient(135deg, #ece7df, #d9d2ca);
-      }
-
-      .gallery-image img {
-        width: 100%;
-        height: auto;
-        display: block;
-        transition: transform 0.3s ease;
-      }
-
-      .gallery-card:hover .gallery-image img {
-        transform: scale(1.04);
-      }
-
-      .gallery-caption {
-        padding: 16px 18px 20px;
-        font-weight: 600;
-        color: var(--text);
-      }
-
-      .typewriter-section {
-        max-width: 1200px;
-        margin: 0 auto 100px;
-        padding: 0 30px;
-      }
-
-      .typewriter-panel {
-        position: relative;
-        min-height: 500px;
-        border-radius: 32px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        background: linear-gradient(135deg, rgba(17, 17, 17, 0.62), rgba(17, 17, 17, 0.4)), url('./terrazo.jpg');
-        background-size: cover;
-        background-position: center;
-        box-shadow: var(--shadow);
-      }
-
-      .typewriter-panel::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(90deg, rgba(12, 10, 9, 0.74), rgba(12, 10, 9, 0.18));
-      }
-
-      .typewriter-content {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        min-height: 500px;
-        align-items: center;
-        padding: 56px 48px;
-      }
-
-      .typewriter-box {
-        max-width: 660px;
-        color: #fff;
-      }
-
-      .typewriter-box .eyebrow {
-        background: rgba(255,255,255,0.14);
-        border-color: rgba(255,255,255,0.18);
-        color: #f9f1e9;
-      }
-
-      .typewriter-text {
-        margin-top: 18px;
-        min-height: 1.2em;
-        font-size: clamp(2.2rem, 4vw, 4.3rem);
-        line-height: 1.08;
-        letter-spacing: -0.06em;
-        white-space: nowrap;
-        overflow: hidden;
-        border-right: 2px solid rgba(255,255,255,0.9);
-        width: 0;
-        animation: typing 3.2s steps(30, end) forwards, blink 0.8s step-end infinite 3.2s;
-      }
-
-      .typewriter-box p {
-        margin-top: 18px;
-        max-width: 600px;
-        color: rgba(255,255,255,0.82);
-        line-height: 1.8;
-        font-size: 1.04rem;
-      }
-
-      .typewriter-box .cta-row {
-        margin-top: 26px;
-      }
-
-      .typewriter-box .btn.primary {
-        background: linear-gradient(135deg, #d6a780, #b77b5d);
-      }
-
-      .typewriter-box .btn.secondary {
-        background: rgba(255,255,255,0.1);
-        border-color: rgba(255,255,255,0.26);
-        color: white;
-      }
-
-      @keyframes typing {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
-      }
-
-      @keyframes blink {
-        50% {
-          border-color: transparent;
-        }
-      }
+        background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url('./terrazo.jpg');
+        background-size: cover; background-position: center; border-bottom: 1px solid rgba(0,0,0,.08);
+        position: sticky; top: 0; z-index: 100;
+      }
+      .nav { max-width: 1200px; margin: 0 auto; padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; }
+      .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.2rem; color: #111; }
+      .logo-box { width: 42px; height: 42px; background: linear-gradient(135deg, grey, darkgrey); display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; font-weight: bold; }
+      .menu { display: flex; gap: 30px; list-style: none; }
+      .menu a { color: #2d2a29; font-weight: 600; transition: color .2s ease; }
+      .menu a:hover { color: #0057b8; }
+      .hero { max-width: 1200px; margin: 60px auto 30px; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; gap: 50px; }
+      .hero-text, .hero-image { flex: 1; }
+      .hero-text h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.05; margin-bottom: 20px; color: #111; letter-spacing: -.05em; }
+      .hero-text p { font-size: 1.08rem; line-height: 1.8; color: #555; max-width: 620px; }
+      .hero-image { display: flex; justify-content: center; }
+      .image-placeholder { width: 100%; max-width: 520px; height: 360px; border-radius: 26px; background: linear-gradient(135deg,#e6f0ff,#cfe0ff); border: 1px solid #d7e6ff; box-shadow: var(--shadow); background-image: url('./marmor_travertin_fliese.jpg'); background-size: cover; background-position: center; }
+      .slider-section, .competence-section, .gallery-section, .typewriter-section, .reuse-section { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 30px; padding-right: 30px; }
+      .slider-section { margin-top: 40px; margin-bottom: 80px; }
+      .slider-card { display: grid; grid-template-columns: 1.2fr .8fr; min-height: 550px; border-radius: 32px; overflow: hidden; background: rgba(255,255,255,.45); border: 1px solid var(--line); box-shadow: var(--shadow); }
+      .slider-panel { position: relative; height: 550px; background: #ddd; }
+      .slides { position: relative; width: 100%; height: 100%; }
+      .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .5s ease, visibility .5s ease; overflow: hidden; }
+      .slide.active { opacity: 1; visibility: visible; }
+      .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg,rgba(28,20,14,.22),rgba(28,20,14,.06)); }
+      .slide-meta { position: absolute; left: 26px; bottom: 24px; z-index: 2; display: flex; align-items: center; gap: 12px; color: #fff; }
+      .meta-badge { padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; backdrop-filter: blur(6px); }
+      .meta-label { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; opacity: .95; }
+      .slider-controls { position: absolute; right: 24px; bottom: 22px; z-index: 2; display: flex; gap: 10px; }
+      .nav-btn { width: 46px; height: 46px; border: 0; border-radius: 50%; background: rgba(255,255,255,.18); backdrop-filter: blur(4px); color: white; font-size: 28px; cursor: pointer; transition: transform .2s ease, background .2s ease; }
+      .nav-btn:hover { background: rgba(255,255,255,.24); transform: translateY(-2px); }
+      .text-panel { display: flex; align-items: center; padding: 52px 42px; background: linear-gradient(180deg,rgba(255,255,255,.72),rgba(249,245,240,.9)); }
+      .text-box { max-width: 430px; }
+      .eyebrow { display: inline-block; padding: 8px 14px; border-radius: 999px; background: var(--accent-soft); border: 1px solid rgba(196,138,94,.2); color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+      .text-box h2 { margin-top: 18px; font-size: clamp(2.2rem,3vw,3.2rem); line-height: 1.02; letter-spacing: -.05em; margin-bottom: 16px; }
+      .text-box p { color: var(--muted); line-height: 1.8; font-size: 1.02rem; margin-bottom: 24px; }
+      .feature-list { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
+      .feature-item { padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,.5); border: 1px solid var(--line); color: #2c2a2a; font-size: .9rem; }
+      .feature-item::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-right: 8px; vertical-align: middle; }
+      .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+      .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 22px; border-radius: 999px; font-weight: 600; transition: transform .2s ease, box-shadow .2s ease; }
+      .btn.primary { background: linear-gradient(135deg,#b97b5d,#d7a888); color: white; box-shadow: 0 16px 24px rgba(185,123,93,.22); }
+      .btn.secondary { color: var(--text); border: 1px solid var(--line); background: rgba(255,255,255,.45); }
+      .btn:hover { transform: translateY(-2px); }
+      .competence-section { margin-bottom: 90px; }
+      .competence-header, .gallery-header { text-align: center; margin-bottom: 28px; }
+      .competence-header h2, .gallery-header h2 { font-size: clamp(2rem,3vw,3rem); letter-spacing: -.05em; margin-top: 14px; }
+      .competence-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
+      .competence-card { background: rgba(255,255,255,.75); border: 1px solid var(--line); border-radius: 26px; padding: 28px 24px; box-shadow: 0 18px 40px rgba(17,17,17,.04); }
+      .competence-number { width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg,var(--accent-soft),#fff); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 18px; }
+      .competence-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+      .competence-card p { color: var(--muted); line-height: 1.7; }
+
+      /* Neue Sektion: rückbaubares Fliesenwiederaufnahmesystem */
+      .reuse-section { margin-bottom: 100px; }
+      .reuse-panel { position: relative; overflow: hidden; padding: clamp(30px,6vw,72px); border-radius: 32px; background: linear-gradient(135deg,#2c2926,#51443a); color: #fff; box-shadow: var(--shadow); }
+      .reuse-panel::after { content: ''; position: absolute; width: 360px; height: 360px; right: -100px; top: -150px; border: 1px solid rgba(255,255,255,.12); border-radius: 50%; box-shadow: 0 0 0 32px rgba(255,255,255,.035), 0 0 0 64px rgba(255,255,255,.025); pointer-events: none; }
+      .reuse-content { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; }
+      .reuse-section .eyebrow { color: #f4d7bf; background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.16); }
+      .reuse-section h2 { max-width: 760px; margin: 20px 0 16px; font-size: clamp(2rem,4.2vw,3.6rem); line-height: 1.05; letter-spacing: -.05em; }
+      .reuse-intro { max-width: 760px; color: rgba(255,255,255,.8); font-size: 1.05rem; line-height: 1.8; }
+      .reuse-benefits { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin: 32px 0; }
+      .reuse-benefit { padding: 22px; border: 1px solid rgba(255,255,255,.14); border-radius: 20px; background: rgba(255,255,255,.07); }
+      .reuse-benefit h3 { margin-bottom: 9px; font-size: 1.08rem; }
+      .reuse-benefit p { color: rgba(255,255,255,.74); font-size: .95rem; line-height: 1.65; }
+      .reuse-note { margin-top: 18px; color: rgba(255,255,255,.65); font-size: .88rem; line-height: 1.6; }
+      .reuse-section .btn.secondary { color: white; border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.08); }
+
+      .gallery-section { margin-bottom: 100px; }
+      .gallery-grid { column-count: 4; column-gap: 20px; }
+      .gallery-card { display: inline-block; width: 100%; margin: 0 0 20px; background: rgba(255,255,255,.75); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: 0 16px 38px rgba(17,17,17,.05); break-inside: avoid; }
+      .gallery-image { position: relative; width: 100%; overflow: hidden; background: linear-gradient(135deg,#ece7df,#d9d2ca); }
+      .gallery-image img { width: 100%; height: auto; display: block; transition: transform .3s ease; }
+      .gallery-card:hover .gallery-image img { transform: scale(1.04); }
+      .gallery-caption { padding: 16px 18px 20px; font-weight: 600; color: var(--text); }
+      .typewriter-section { margin-bottom: 100px; }
+      .typewriter-panel { position: relative; min-height: 500px; border-radius: 32px; overflow: hidden; border: 1px solid rgba(255,255,255,.22); background: linear-gradient(135deg,rgba(17,17,17,.62),rgba(17,17,17,.4)),url('./terrazo.jpg'); background-size: cover; background-position: center; box-shadow: var(--shadow); }
+      .typewriter-panel::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,rgba(12,10,9,.74),rgba(12,10,9,.18)); }
+      .typewriter-content { position: relative; z-index: 1; display: flex; min-height: 500px; align-items: center; padding: 56px 48px; }
+      .typewriter-box { max-width: 660px; color: #fff; }
+      .typewriter-box .eyebrow { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.18); color: #f9f1e9; }
+      .typewriter-text { margin-top: 18px; min-height: 1.2em; font-size: clamp(2.2rem,4vw,4.3rem); line-height: 1.08; letter-spacing: -.06em; white-space: nowrap; overflow: hidden; border-right: 2px solid rgba(255,255,255,.9); width: 0; animation: typing 3.2s steps(30,end) forwards, blink .8s step-end infinite 3.2s; }
+      .typewriter-box p { margin-top: 18px; max-width: 600px; color: rgba(255,255,255,.82); line-height: 1.8; font-size: 1.04rem; }
+      .typewriter-box .cta-row { margin-top: 26px; }
+      .typewriter-box .btn.primary { background: linear-gradient(135deg,#d6a780,#b77b5d); }
+      .typewriter-box .btn.secondary { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.26); color: white; }
+      @keyframes typing { from { width: 0; } to { width: 100%; } }
+      @keyframes blink { 50% { border-color: transparent; } }
 
       @media (max-width: 900px) {
-        .hero {
-          flex-direction: column;
-          text-align: left;
-        }
-
-        .hero-text {
-          text-align: left;
-        }
-
-        .hero-text p {
-          margin: 0;
-        }
-
-        .hero-image {
-          width: 100%;
-        }
-
-        .image-placeholder {
-          width: min(100%, 520px);
-          height: clamp(240px, 48vw, 360px);
-          display: block;
-        }
-
-        .slider-card {
-          grid-template-columns: 1fr;
-        }
-
-        .slider-panel {
-          height: 440px;
-        }
-
-        .competence-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .history-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .gallery-grid {
-          column-count: 2;
-        }
+        .hero { flex-direction: column; text-align: left; }
+        .hero-text { text-align: left; }
+        .hero-image { width: 100%; }
+        .image-placeholder { width: min(100%,520px); height: clamp(240px,48vw,360px); }
+        .slider-card { grid-template-columns: 1fr; }
+        .slider-panel { height: 440px; }
+        .competence-grid { grid-template-columns: 1fr; }
+        .reuse-benefits { grid-template-columns: 1fr; }
+        .gallery-grid { column-count: 2; }
       }
-
       @media (max-width: 768px) {
-        .nav {
-          flex-direction: column;
-          gap: 14px;
-        }
-
-        .menu {
-          flex-wrap: wrap;
-          justify-content: center;
-        }
+        .nav { flex-direction: column; gap: 14px; }
+        .menu { flex-wrap: wrap; justify-content: center; }
       }
-
       @media (max-width: 560px) {
-        .hero,
-        .slider-section,
-        .competence-section,
-        .history-section,
-        .gallery-section,
-        .typewriter-section {
-          padding-left: 16px;
-          padding-right: 16px;
-        }
-
-        .hero-image {
-          width: 100%;
-        }
-
-        .image-placeholder {
-          width: 100%;
-          max-width: 100%;
-          height: 240px;
-          display: block;
-        }
-
-        .text-panel {
-          padding: 34px 24px;
-        }
-
-        .typewriter-content {
-          padding: 40px 24px;
-        }
-
-        .typewriter-text {
-          white-space: normal;
-          border-right: none;
-          width: 100%;
-          animation: none;
-        }
-
-        .cta-row {
-          flex-direction: column;
-        }
-
-        .btn {
-          width: 100%;
-        }
-
-        .history-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .gallery-grid {
-          column-count: 1;
-        }
+        .hero, .slider-section, .competence-section, .gallery-section, .typewriter-section, .reuse-section { padding-left: 16px; padding-right: 16px; }
+        .image-placeholder { width: 100%; max-width: 100%; height: 240px; }
+        .text-panel { padding: 34px 24px; }
+        .typewriter-content { padding: 40px 24px; }
+        .typewriter-text { white-space: normal; border-right: none; width: 100%; animation: none; }
+        .cta-row { flex-direction: column; }
+        .btn { width: 100%; }
+        .gallery-grid { column-count: 1; }
+        .reuse-panel { border-radius: 24px; }
       }
     </style>
   </head>
   <body>
     <header>
       <nav class="nav">
-        <div class="logo">
-          <div class="logo-box"></div>
-          <span>fliesenmensch.</span>
-           
-        </div>
-
+        <div class="logo"><div class="logo-box" aria-hidden="true"></div><span>fliesenmensch.</span></div>
         <ul class="menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Über</a></li>
-          <li><a href="#">Kompetenz</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#werke">Über</a></li>
+          <li><a href="#kompetenz">Kompetenz</a></li>
+          <li><a href="#wiederaufnahmesystem">Wiederaufnahmesystem</a></li>
         </ul>
       </nav>
     </header>
 
-    <main class="hero">
+    <main class="hero" id="home">
       <div class="hero-text">
         <h1>Fliesen.<br />Fliesen.<br />Fliesen.</h1>
-        <p>
-          Fliesen, Marmor &amp; Steine sind für die Ewigkeit und deswegen bedarf es bei dem Handwerk echte Präzision und vorausschauende Planung bis zur letzten Fuge.
-        </p>
+        <p>Fliesen, Marmor &amp; Steine sind für die Ewigkeit und deswegen bedarf es bei dem Handwerk echte Präzision und vorausschauende Planung bis zur letzten Fuge.</p>
       </div>
-
-      <div class="hero-image">
-        <div class="image-placeholder"></div>
-      </div>
+      <div class="hero-image"><div class="image-placeholder" role="img" aria-label="Marmor- und Travertinfliesen"></div></div>
     </main>
 
-    <section class="slider-section" aria-label="Projekt-Slider">
+    <section class="slider-section" aria-label="Projekt-Slider" id="werke">
       <div class="slider-card">
         <div class="slider-panel">
           <div class="slides">
-            <div class="slide active">
-              <img src="./IMG_0943.jpg" alt="Moderne Fliesenarbeit" />
-            </div>
-            <div class="slide">
-              <img src="Fliesen_Fasade.HEIC" alt="Fliesenfassade" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80';" />
-            </div>
-            <div class="slide">
-              <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Hochwertige Oberflächen und Materialmix" />
-            </div>
+            <div class="slide active"><img src="./IMG_0943.jpg" alt="Moderne Fliesenarbeit" /></div>
+            <div class="slide"><img src="Fliesen_Fasade.HEIC" alt="Fliesenfassade" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80';" /></div>
+            <div class="slide"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Hochwertige Oberflächen und Materialmix" /></div>
           </div>
-
-          <div class="slide-meta">
-            <span class="meta-badge">Rückblick</span>
-            <span class="meta-label"></span>
-          </div>
-
+          <div class="slide-meta"><span class="meta-badge">Rückblick</span><span class="meta-label">Innenausbau</span></div>
           <div class="slider-controls">
             <button class="nav-btn prev" aria-label="Vorheriges Bild">&#8249;</button>
             <button class="nav-btn next" aria-label="Nächstes Bild">&#8250;</button>
           </div>
         </div>
-
         <div class="text-panel">
           <div class="text-box">
             <span class="eyebrow">Meine Werke</span>
             <h2>Fliesenhandwerk.</h2>
-            <p>
-              Hochwertige Materialien, präzise Verarbeitung und eine ruhige, zeitlose Ästhetik. Jede Fläche wird so geplant, dass sie nicht nur schön wirkt, sondern auch langfristig überzeugt.
-            </p>
-
-            <div class="feature-list">
-              <span class="feature-item">Maß</span>
-              <span class="feature-item">Handwerk</span>
-              <span class="feature-item">Details</span>
-            </div>
-
-            <div class="cta-row">
-              <a href="#" class="btn primary">Mehr erfahren</a>
-            </div>
+            <p>Hochwertige Materialien, präzise Verarbeitung und eine ruhige, zeitlose Ästhetik. Jede Fläche wird so geplant, dass sie nicht nur schön wirkt, sondern auch langfristig überzeugt.</p>
+            <div class="feature-list"><span class="feature-item">Maß</span><span class="feature-item">Handwerk</span><span class="feature-item">Details</span></div>
+            <div class="cta-row"><a href="#kompetenz" class="btn primary">Mehr erfahren</a></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="competence-section" aria-label="Kompetenzbereich">
-      <div class="competence-header">
-        <span class="eyebrow">Kompetenz</span>
-        <h2>Arbeitsweise</h2>
-      </div>
-
+    <section class="competence-section" aria-label="Kompetenzbereich" id="kompetenz">
+      <div class="competence-header"><span class="eyebrow">Kompetenz</span><h2>Arbeitsweise</h2></div>
       <div class="competence-grid">
-        <article class="competence-card">
-          <div class="competence-number">01</div>
-          <h3>Arbeit nach Maß</h3>
-          <p>
-            Präzise Verlegung von Boden- und Wandfliesen mit Fokus auf saubere Linien,
-            exakte Fugen und langlebige Qualität. Ich habe mein Handwerk noch gelernt.
-          </p>
-        </article>
+        <article class="competence-card"><div class="competence-number">01</div><h3>Arbeit nach Maß</h3><p>Präzise Verlegung von Boden- und Wandfliesen mit Fokus auf saubere Linien, exakte Fugen und langlebige Qualität. Ich habe mein Handwerk noch gelernt.</p></article>
+        <article class="competence-card"><div class="competence-number">02</div><h3>Abdichten nach DIN-Norm 18534</h3><p>Ein ganzheitliches Abdichtsystem erfordert höchste Qualitätsanforderungen bei der Verarbeitung und Langlebigkeit.</p></article>
+        <article class="competence-card"><div class="competence-number">03</div><h3>Beratung</h3><p>Innovative Lösungen für Altbau, Modernisierung und Detailarbeiten mit Blick auf Funktion, Haltbarkeit und Ästhetik.</p></article>
+      </div>
+    </section>
 
-        <article class="competence-card">
-          <div class="competence-number">02</div>
-          <h3>Abdichten nach DIN-Norm 18534</h3>
-          <p>
-            Ein ganzheitliches Abdichtsystem erfordert höchste Qualitätsanforderungen bei der Verarbeitung und Langlebigkeit.
-          </p>
-        </article>
-
-        <article class="competence-card">
-          <div class="competence-number">03</div>
-          <h3>Beratung</h3>
-          <p>
-            Innovative Lösungen für Altbau, Modernisierung und Detailarbeiten mit Blick auf
-            Funktion, Haltbarkeit und Ästhetik.
-          </p>
-        </article>
+    <section class="reuse-section" id="wiederaufnahmesystem" aria-labelledby="reuse-heading">
+      <div class="reuse-panel">
+        <div class="reuse-content">
+          <span class="eyebrow">Flexibel gestalten</span>
+          <h2 id="reuse-heading">Fliesen, die mit dem Standort weiterziehen.</h2>
+          <p class="reuse-intro">Ein Fliesenwiederaufnahmesystem eröffnet neue Möglichkeiten für temporäre und wechselnde Flächen. Es eignet sich besonders für Läden, Ausstellungen und Pop-up-Stores, in denen Gestaltung flexibel bleiben und sich an neue Konzepte anpassen soll.</p>
+          <div class="reuse-benefits">
+            <article class="reuse-benefit"><h3>Für wechselnde Konzepte</h3><p>Eine passende Lösung, wenn Verkaufsflächen oder Präsentationen regelmäßig neu gestaltet werden.</p></article>
+            <article class="reuse-benefit"><h3>Für starke Auftritte</h3><p>Fliesen bringen Materialität und eine hochwertige Anmutung in Ladenbau, Showroom und Ausstellung.</p></article>
+            <article class="reuse-benefit"><h3>Gemeinsam geplant</h3><p>Format, Fläche und Einsatz werden auf das jeweilige Projekt und die Anforderungen vor Ort abgestimmt.</p></article>
+          </div>
+          <div class="cta-row"><a href="mailto:?subject=Anfrage%20Fliesenwiederaufnahmesystem" class="btn secondary">Projekt besprechen</a></div>
+          <p class="reuse-note">Die konkrete Wiederaufnahme und Wiederverwendung hängen vom gewählten System, dem Untergrund und den Einsatzbedingungen ab und werden projektbezogen geprüft.</p>
+        </div>
       </div>
     </section>
 
     <section class="gallery-section" aria-label="Bildergalerie">
-      <div class="gallery-header">
-        <span class="eyebrow">Portfolio</span>
-        <h2>Einblicke</h2>
-      </div>
-
+      <div class="gallery-header"><span class="eyebrow">Portfolio</span><h2>Einblicke</h2></div>
       <div class="gallery-grid">
-        <figure class="gallery-card">
-          <div class="gallery-image">
-            <img src="./fliesenoptik_marmor_drei.jpg" alt="Projektbild 1" />
-          </div>
-          <figcaption class="gallery-caption">Marmorino WC</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <div class="gallery-image">
-            <img src="marmor_zylinder.jpg" alt="Projektbild 2" />
-          </div>
-          <figcaption class="gallery-caption">Zylindrisch</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <div class="gallery-image">
-            <img src="fliesenoptik_marmor.jpg" alt="Projektbild 3" />
-          </div>
-          <figcaption class="gallery-caption">Marmorino Bad</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <div class="gallery-image">
-            <img src="marmor_klein.jpg" alt="Projektbild 4" />
-          </div>
-          <figcaption class="gallery-caption">Mosaik</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <div class="gallery-image">
-            <img src="./IMG_0943.jpg" alt="Projektbild 5" />
-          </div>
-          <figcaption class="gallery-caption">Großformat</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <div class="gallery-image">
-            <img src="./IMG_2270.HEIC" alt="Projektbild 6" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80';" />
-          </div>
-          <figcaption class="gallery-caption">Naturstein</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <div class="gallery-image">
-            <img src="./IMG_1605.jpg" alt="Projektbild 7" />
-          </div>
-          <figcaption class="gallery-caption">Bad mit Spiegel</figcaption>
-        </figure>
-
-        <figure class="gallery-card">
-          <div class="gallery-image">
-            <img src="./IMG_1606.jpg" alt="Projektbild 8" />
-          </div>
-          <figcaption class="gallery-caption">Dusche &amp; Badewanne</figcaption>
-        </figure>
+        <figure class="gallery-card"><div class="gallery-image"><img src="./fliesenoptik_marmor_drei.jpg" alt="Marmoroptik im WC" /></div><figcaption class="gallery-caption">Marmorino WC</figcaption></figure>
+        <figure class="gallery-card"><div class="gallery-image"><img src="marmor_zylinder.jpg" alt="Zylindrische Fliesenarbeit" /></div><figcaption class="gallery-caption">Zylindrisch</figcaption></figure>
+        <figure class="gallery-card"><div class="gallery-image"><img src="fliesenoptik_marmor.jpg" alt="Marmoroptik im Bad" /></div><figcaption class="gallery-caption">Marmorino Bad</figcaption></figure>
+        <figure class="gallery-card"><div class="gallery-image"><img src="marmor_klein.jpg" alt="Mosaikfliesen" /></div><figcaption class="gallery-caption">Mosaik</figcaption></figure>
+        <figure class="gallery-card"><div class="gallery-image"><img src="./IMG_0943.jpg" alt="Großformatige Fliesen" /></div><figcaption class="gallery-caption">Großformat</figcaption></figure>
+        <figure class="gallery-card"><div class="gallery-image"><img src="./IMG_2270.HEIC" alt="Natursteinprojekt" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80';" /></div><figcaption class="gallery-caption">Naturstein</figcaption></figure>
+        <figure class="gallery-card"><div class="gallery-image"><img src="./IMG_1605.jpg" alt="Bad mit Spiegel" /></div><figcaption class="gallery-caption">Bad mit Spiegel</figcaption></figure>
+        <figure class="gallery-card"><div class="gallery-image"><img src="./IMG_1606.jpg" alt="Dusche und Badewanne" /></div><figcaption class="gallery-caption">Dusche &amp; Badewanne</figcaption></figure>
       </div>
     </section>
 
-    <section class="typewriter-section" aria-label="Typewriter Abschnitt">
-      <div class="typewriter-panel">
-        <div class="typewriter-content">
-          <div class="typewriter-box">
-            <span class="eyebrow">Handwerk mit Charakter</span>
-            <h2 class="typewriter-text">Ich schaffe Lebensraum.</h2>
-            <p>
-              Präzision, Materialgefühl und eine ruhige Ästhetik geben jedem Raum eine eigene Atmosphäre – langlebig, hochwertig und bis in die letzte Fuge durchdacht.
-            </p>
-
-            <div class="cta-row">
-              <a href="#" class="btn primary">Termin vereinbaren</a>
-              <a href="#" class="btn secondary">Projekt ansehen</a>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section class="typewriter-section" aria-label="Handwerk mit Charakter">
+      <div class="typewriter-panel"><div class="typewriter-content"><div class="typewriter-box">
+        <span class="eyebrow">Handwerk mit Charakter</span>
+        <h2 class="typewriter-text">Ich schaffe Lebensraum.</h2>
+        <p>Präzision, Materialgefühl und eine ruhige Ästhetik geben jedem Raum eine eigene Atmosphäre – langlebig, hochwertig und bis in die letzte Fuge durchdacht.</p>
+        <div class="cta-row"><a href="mailto:?subject=Termin%20vereinbaren" class="btn primary">Termin vereinbaren</a><a href="#werke" class="btn secondary">Projekt ansehen</a></div>
+      </div></div></div>
     </section>
 
     <script>
@@ -932,21 +242,13 @@
         console.warn('Slider: missing slides or controls.');
       } else {
         let currentSlide = 0;
-
         function showSlide(index) {
           currentSlide = (index + slides.length) % slides.length;
-
-          slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === currentSlide);
-          });
+          slides.forEach((slide, i) => slide.classList.toggle('active', i === currentSlide));
         }
-
         prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
         nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
-
-        setInterval(() => {
-          showSlide(currentSlide + 1);
-        }, 4500);
+        setInterval(() => showSlide(currentSlide + 1), 4500);
       }
     </script>
   </body>
