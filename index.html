@@ -46,7 +46,7 @@
       .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
       .slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg,rgba(28,20,14,.22),rgba(28,20,14,.06)); }
       .slide-meta { position: absolute; left: 26px; bottom: 24px; z-index: 2; display: flex; align-items: center; gap: 12px; color: #fff; }
-      .meta-badge { padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; backdrop-filter: blur(6px); }
+      .meta-badge { padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
       .meta-label { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; opacity: .95; }
       .slider-controls { position: absolute; right: 24px; bottom: 22px; z-index: 2; display: flex; gap: 10px; }
       .nav-btn { width: 46px; height: 46px; border: 0; border-radius: 50%; background: rgba(255,255,255,.18); backdrop-filter: blur(4px); color: white; font-size: 28px; cursor: pointer; transition: transform .2s ease, background .2s ease; }
@@ -73,10 +73,9 @@
       .competence-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
       .competence-card p { color: var(--muted); line-height: 1.7; }
 
-      /* Neue Sektion: rückbaubares Fliesenwiederaufnahmesystem */
       .reuse-section { margin-bottom: 100px; }
       .reuse-panel { position: relative; overflow: hidden; padding: clamp(30px,6vw,72px); border-radius: 32px; background: linear-gradient(135deg,#2c2926,#51443a); color: #fff; box-shadow: var(--shadow); }
-      .reuse-panel::after { content: ''; position: absolute; width: 360px; height: 360px; right: -100px; top: -150px; border: 1px solid rgba(255,255,255,.12); border-radius: 50%; box-shadow: 0 0 0 32px rgba(255,255,255,.035), 0 0 0 64px rgba(255,255,255,.025); pointer-events: none; }
+      .reuse-panel::after { content: ''; position: absolute; width: 360px; height: 360px; right: -100px; top: -150px; border: 1px solid rgba(255,255,255,.12); border-radius: 50%; box-shadow: 0 0 0 32px rgba(255,255,255,.03); }
       .reuse-content { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; }
       .reuse-section .eyebrow { color: #f4d7bf; background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.16); }
       .reuse-section h2 { max-width: 760px; margin: 20px 0 16px; font-size: clamp(2rem,4.2vw,3.6rem); line-height: 1.05; letter-spacing: -.05em; }
@@ -90,13 +89,13 @@
 
       .gallery-section { margin-bottom: 100px; }
       .gallery-grid { column-count: 4; column-gap: 20px; }
-      .gallery-card { display: inline-block; width: 100%; margin: 0 0 20px; background: rgba(255,255,255,.75); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: 0 16px 38px rgba(17,17,17,.05); break-inside: avoid; }
+      .gallery-card { display: inline-block; width: 100%; margin: 0 0 20px; background: rgba(255,255,255,.75); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: 0 16px 38px rgba(17,17,17,.05); }
       .gallery-image { position: relative; width: 100%; overflow: hidden; background: linear-gradient(135deg,#ece7df,#d9d2ca); }
       .gallery-image img { width: 100%; height: auto; display: block; transition: transform .3s ease; }
       .gallery-card:hover .gallery-image img { transform: scale(1.04); }
       .gallery-caption { padding: 16px 18px 20px; font-weight: 600; color: var(--text); }
       .typewriter-section { margin-bottom: 100px; }
-      .typewriter-panel { position: relative; min-height: 500px; border-radius: 32px; overflow: hidden; border: 1px solid rgba(255,255,255,.22); background: linear-gradient(135deg,rgba(17,17,17,.62),rgba(17,17,17,.4)),url('./terrazo.jpg'); background-size: cover; background-position: center; box-shadow: var(--shadow); }
+      .typewriter-panel { position: relative; min-height: 500px; border-radius: 32px; overflow: hidden; border: 1px solid rgba(255,255,255,.22); background: linear-gradient(135deg,rgba(17,17,17,.62),rgba(17,17,17,.42)), url('./terrazo.jpg'); background-size: cover; background-position: center; box-shadow: var(--shadow); }
       .typewriter-panel::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,rgba(12,10,9,.74),rgba(12,10,9,.18)); }
       .typewriter-content { position: relative; z-index: 1; display: flex; min-height: 500px; align-items: center; padding: 56px 48px; }
       .typewriter-box { max-width: 660px; color: #fff; }
@@ -145,7 +144,6 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#werke">Über</a></li>
           <li><a href="#kompetenz">Kompetenz</a></li>
-          <li><a href="#wiederaufnahmesystem">Wiederaufnahmesystem</a></li>
         </ul>
       </nav>
     </header>
@@ -163,7 +161,7 @@
         <div class="slider-panel">
           <div class="slides">
             <div class="slide active"><img src="./IMG_0943.jpg" alt="Moderne Fliesenarbeit" /></div>
-            <div class="slide"><img src="Fliesen_Fasade.HEIC" alt="Fliesenfassade" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80';" /></div>
+            <div class="slide"><img src="Fliesen_Fasade.HEIC" alt="Fliesenfassade" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80'" /></div>
             <div class="slide"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Hochwertige Oberflächen und Materialmix" /></div>
           </div>
           <div class="slide-meta"><span class="meta-badge">Rückblick</span><span class="meta-label">Innenausbau</span></div>
@@ -187,9 +185,9 @@
     <section class="competence-section" aria-label="Kompetenzbereich" id="kompetenz">
       <div class="competence-header"><span class="eyebrow">Kompetenz</span><h2>Arbeitsweise</h2></div>
       <div class="competence-grid">
-        <article class="competence-card"><div class="competence-number">01</div><h3>Arbeit nach Maß</h3><p>Präzise Verlegung von Boden- und Wandfliesen mit Fokus auf saubere Linien, exakte Fugen und langlebige Qualität. Ich habe mein Handwerk noch gelernt.</p></article>
-        <article class="competence-card"><div class="competence-number">02</div><h3>Abdichten nach DIN-Norm 18534</h3><p>Ein ganzheitliches Abdichtsystem erfordert höchste Qualitätsanforderungen bei der Verarbeitung und Langlebigkeit.</p></article>
-        <article class="competence-card"><div class="competence-number">03</div><h3>Beratung</h3><p>Innovative Lösungen für Altbau, Modernisierung und Detailarbeiten mit Blick auf Funktion, Haltbarkeit und Ästhetik.</p></article>
+        <article class="competence-card"><div class="competence-number">01</div><h3>Arbeit nach Maß</h3><p>Präzise Verlegung von Boden- und Wandfliesen mit Fokus auf saubere Linien, exakte Fugen und langlebige Qualität. Ich habe mein Handwerk noch gelernt und setze es mit Ruhe und Präzision um.</p></article>
+        <article class="competence-card"><div class="competence-number">02</div><h3>Abdichten nach DIN-Norm 18534</h3><p>Ein ganzheitliches Abdichtsystem erfordert höchste Qualitätsanforderungen bei der Verarbeitung und Langlebigkeit. Genau hier liegt die Grundlage für nachhaltige, funktionale Räume.</p></article>
+        <article class="competence-card"><div class="competence-number">03</div><h3>Beratung</h3><p>Innovative Lösungen für Altbau, Modernisierung und Detailarbeiten mit Blick auf Funktion, Haltbarkeit und Ästhetik. So entstehen Räume mit Charakter und langfristigem Wert.</p></article>
       </div>
     </section>
 
@@ -198,7 +196,7 @@
         <div class="reuse-content">
           <span class="eyebrow">Flexibel gestalten</span>
           <h2 id="reuse-heading">Fliesen, die mit dem Standort weiterziehen.</h2>
-          <p class="reuse-intro">Ein Fliesenwiederaufnahmesystem eröffnet neue Möglichkeiten für temporäre und wechselnde Flächen. Es eignet sich besonders für Läden, Ausstellungen und Pop-up-Stores, in denen Gestaltung flexibel bleiben und sich an neue Konzepte anpassen soll.</p>
+          <p class="reuse-intro">Ein Fliesenwiederaufnahmesystem eröffnet neue Möglichkeiten für temporäre und wechselnde Flächen. Es eignet sich besonders für Läden, Ausstellungen und Pop-up-Stores, in denen Gestaltung flexibel bleiben soll und sich an neue Konzepte anpassen lässt.</p>
           <div class="reuse-benefits">
             <article class="reuse-benefit"><h3>Für wechselnde Konzepte</h3><p>Eine passende Lösung, wenn Verkaufsflächen oder Präsentationen regelmäßig neu gestaltet werden.</p></article>
             <article class="reuse-benefit"><h3>Für starke Auftritte</h3><p>Fliesen bringen Materialität und eine hochwertige Anmutung in Ladenbau, Showroom und Ausstellung.</p></article>
@@ -218,7 +216,7 @@
         <figure class="gallery-card"><div class="gallery-image"><img src="fliesenoptik_marmor.jpg" alt="Marmoroptik im Bad" /></div><figcaption class="gallery-caption">Marmorino Bad</figcaption></figure>
         <figure class="gallery-card"><div class="gallery-image"><img src="marmor_klein.jpg" alt="Mosaikfliesen" /></div><figcaption class="gallery-caption">Mosaik</figcaption></figure>
         <figure class="gallery-card"><div class="gallery-image"><img src="./IMG_0943.jpg" alt="Großformatige Fliesen" /></div><figcaption class="gallery-caption">Großformat</figcaption></figure>
-        <figure class="gallery-card"><div class="gallery-image"><img src="./IMG_2270.HEIC" alt="Natursteinprojekt" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80';" /></div><figcaption class="gallery-caption">Naturstein</figcaption></figure>
+        <figure class="gallery-card"><div class="gallery-image"><img src="./IMG_2270.HEIC" alt="Natursteinprojekt" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512917774080-9898d890f0fb?auto=format&fit=crop&w=900&q=80'" /></div><figcaption class="gallery-caption">Naturstein</figcaption></figure>
         <figure class="gallery-card"><div class="gallery-image"><img src="./IMG_1605.jpg" alt="Bad mit Spiegel" /></div><figcaption class="gallery-caption">Bad mit Spiegel</figcaption></figure>
         <figure class="gallery-card"><div class="gallery-image"><img src="./IMG_1606.jpg" alt="Dusche und Badewanne" /></div><figcaption class="gallery-caption">Dusche &amp; Badewanne</figcaption></figure>
       </div>
