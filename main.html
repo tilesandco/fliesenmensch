@@ -19,10 +19,10 @@
       html { scroll-behavior: smooth; }
       body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); }
       a { text-decoration: none; }
-      header { background: linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7)),url('./terrazo.jpg'); background-size: cover; background-position: center; border-bottom: 1px solid rgba(0,0,0,.08); position: sticky; top: 0; z-index: 100; }
+      header { background: linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7)),url('./terrazo.jpg'); background-size: cover; background-position: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
       .nav { max-width: 1200px; margin: 0 auto; padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; }
       .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.2rem; color: #111; }
-      .logo-box { width: 42px; height: 42px; background: linear-gradient(135deg,grey,darkgrey); display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; font-weight: bold; }
+      .logo-box { width: 42px; height: 42px; background: linear-gradient(135deg,grey,darkgrey); display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; font-weight: 700; border-radius: 12px; }
       .menu { display: flex; gap: 30px; list-style: none; }
       .menu a { color: #2d2a29; font-weight: 600; transition: color .2s ease; }
       .menu a:hover { color: #0057b8; }
@@ -31,7 +31,7 @@
       .hero-text h1 { font-size: clamp(2.5rem,5vw,4rem); line-height: 1.05; margin-bottom: 20px; color: #111; letter-spacing: -.05em; }
       .hero-text p { font-size: 1.08rem; line-height: 1.8; color: #555; max-width: 620px; }
       .hero-image { display: flex; justify-content: center; width: 100%; }
-      .image-placeholder { width: 100%; max-width: 520px; height: 360px; border-radius: 26px; background: linear-gradient(135deg,#e6f0ff,#cfe0ff); border: 1px solid #d7e6ff; box-shadow: var(--shadow); background-image: url('./marmor_travertin_fliese.jpg'); background-size: cover; background-position: center; }
+      .image-placeholder { width: 100%; max-width: 520px; height: 360px; border-radius: 26px; background: linear-gradient(135deg,#e6f0ff,#cfe0ff); border: 1px solid #d7e6ff; box-shadow: var(--shadow); }
       .slider-section, .competence-section, .gallery-section, .typewriter-section, .floor-solution-section, .screed-section { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 30px; padding-right: 30px; }
       .slider-section { margin-top: 40px; margin-bottom: 80px; }
       .slider-card { display: grid; grid-template-columns: 1.2fr .8fr; min-height: 550px; border-radius: 32px; overflow: hidden; background: rgba(255,255,255,.45); border: 1px solid var(--line); box-shadow: var(--shadow); }
@@ -68,7 +68,6 @@
       .competence-number { width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg,var(--accent-soft),#fff); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 18px; }
       .competence-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
       .competence-card p { color: var(--muted); line-height: 1.7; }
-
       .floor-solution-section, .screed-section { margin-bottom: 100px; }
       .floor-solution-panel, .screed-panel { padding: clamp(30px,6vw,72px); border: 1px solid var(--line); border-radius: 32px; background: var(--panel); box-shadow: var(--shadow); }
       .floor-solution-panel { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(280px,.85fr); gap: clamp(28px,5vw,64px); align-items: center; }
@@ -77,9 +76,8 @@
       .floor-solution-answer { padding: 28px; border-radius: 24px; background: linear-gradient(145deg,#f0dfd0,#fff8f1); }
       .floor-solution-answer h3 { margin-bottom: 12px; font-size: 1.35rem; }
       .floor-solution-answer p { color: var(--muted); line-height: 1.75; }
-
       .screed-panel { position: relative; overflow: hidden; background: linear-gradient(135deg,#2c2926,#51443a); color: #fff; }
-      .screed-panel::after { content: ''; position: absolute; width: 330px; height: 330px; right: -100px; top: -150px; border: 1px solid rgba(255,255,255,.14); border-radius: 50%; box-shadow: 0 0 0 38px rgba(255,255,255,.035),0 0 0 78px rgba(255,255,255,.025); pointer-events: none; }
+      .screed-panel::after { content: ''; position: absolute; width: 330px; height: 330px; right: -100px; top: -150px; border: 1px solid rgba(255,255,255,.14); border-radius: 50%; box-shadow: 0 0 0 42px rgba(255,255,255,.02); }
       .screed-content { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; }
       .screed-section .eyebrow { color: #f4d7bf; background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.16); }
       .screed-panel h2 { max-width: 760px; margin-bottom: 32px; }
@@ -88,28 +86,26 @@
       .screed-detail-label { display: block; margin-bottom: 10px; color: rgba(255,255,255,.72); font-size: .95rem; }
       .screed-detail strong { font-size: clamp(1.7rem,3.5vw,2.4rem); letter-spacing: -.04em; }
       .screed-note { margin-top: 22px; color: rgba(255,255,255,.68); font-size: .88rem; line-height: 1.6; }
-
       .gallery-section { margin-bottom: 100px; }
       .gallery-grid { column-count: 4; column-gap: 20px; }
-      .gallery-card { display: inline-block; width: 100%; margin: 0 0 20px; background: rgba(255,255,255,.75); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: 0 16px 38px rgba(17,17,17,.05); break-inside: avoid; }
+      .gallery-card { display: inline-block; width: 100%; margin: 0 0 20px; background: rgba(255,255,255,.75); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: 0 18px 32px rgba(22,18,14,.04); }
       .gallery-image { position: relative; width: 100%; overflow: hidden; background: linear-gradient(135deg,#ece7df,#d9d2ca); }
       .gallery-image img { width: 100%; height: auto; display: block; transition: transform .3s ease; }
       .gallery-card:hover .gallery-image img { transform: scale(1.04); }
       .gallery-caption { padding: 16px 18px 20px; font-weight: 600; color: var(--text); }
       .typewriter-section { margin-bottom: 100px; }
-      .typewriter-panel { position: relative; min-height: 500px; border-radius: 32px; overflow: hidden; border: 1px solid rgba(255,255,255,.22); background: linear-gradient(135deg,rgba(17,17,17,.62),rgba(17,17,17,.4)),url('./terrazo.jpg'); background-size: cover; background-position: center; box-shadow: var(--shadow); }
+      .typewriter-panel { position: relative; min-height: 500px; border-radius: 32px; overflow: hidden; border: 1px solid rgba(255,255,255,.22); background: linear-gradient(135deg,rgba(17,17,17,.75),rgba(17,17,17,.3)),url('./marmor_travertin_fliese.jpg') center/cover no-repeat; }
       .typewriter-panel::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,rgba(12,10,9,.74),rgba(12,10,9,.18)); }
       .typewriter-content { position: relative; z-index: 1; display: flex; min-height: 500px; align-items: center; padding: 56px 48px; }
       .typewriter-box { max-width: 660px; color: #fff; }
       .typewriter-box .eyebrow { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.18); color: #f9f1e9; }
-      .typewriter-text { margin-top: 18px; min-height: 1.2em; font-size: clamp(2.2rem,4vw,4.3rem); line-height: 1.08; letter-spacing: -.06em; white-space: nowrap; overflow: hidden; border-right: 2px solid rgba(255,255,255,.9); width: 0; animation: typing 3.2s steps(30,end) forwards,blink .8s step-end infinite 3.2s; }
+      .typewriter-text { margin-top: 18px; min-height: 1.2em; font-size: clamp(2.2rem,4vw,4.3rem); line-height: 1.08; letter-spacing: -.06em; white-space: nowrap; overflow: hidden; border-right: 3px solid rgba(255,255,255,.9); }
       .typewriter-box p { margin-top: 18px; max-width: 600px; color: rgba(255,255,255,.82); line-height: 1.8; font-size: 1.04rem; }
       .typewriter-box .cta-row { margin-top: 26px; }
       .typewriter-box .btn.primary { background: linear-gradient(135deg,#d6a780,#b77b5d); }
       .typewriter-box .btn.secondary { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.26); color: white; }
       @keyframes typing { from { width: 0; } to { width: 100%; } }
       @keyframes blink { 50% { border-color: transparent; } }
-
       @media (max-width: 900px) {
         .hero { flex-direction: column; text-align: center; }
         .hero-text p { margin: 0 auto; }
@@ -185,9 +181,9 @@
     <section class="competence-section" aria-label="Kompetenzbereich" id="kompetenz">
       <div class="competence-header"><span class="eyebrow">Kompetenz</span><h2>Arbeitsweise</h2></div>
       <div class="competence-grid">
-        <article class="competence-card"><div class="competence-number">01</div><h3>Arbeit nach Maß</h3><p>Präzise Verlegung von Boden- und Wandfliesen mit Fokus auf saubere Linien, exakte Fugen und langlebige Qualität. Ich habe mein Handwerk noch gelernt.</p></article>
-        <article class="competence-card"><div class="competence-number">02</div><h3>Abdichten nach DIN-Norm 18534</h3><p>Ein ganzheitliches Abdichtsystem erfordert höchste Qualitätsanforderungen bei der Verarbeitung und Langlebigkeit.</p></article>
-        <article class="competence-card"><div class="competence-number">03</div><h3>Beratung</h3><p>Innovative Lösungen für Altbau, Modernisierung und Detailarbeiten mit Blick auf Funktion, Haltbarkeit und Ästhetik.</p></article>
+        <article class="competence-card"><div class="competence-number">01</div><h3>Arbeit nach Maß</h3><p>Präzise Verlegung von Boden- und Wandfliesen mit Fokus auf saubere Linien, exakte Fugen und eine langlebige Verarbeitung.</p></article>
+        <article class="competence-card"><div class="competence-number">02</div><h3>Abdichten nach DIN-Norm 18534</h3><p>Ein ganzheitliches Abdichtsystem erfordert höchste Qualitätsanforderungen – von der Planung bis zur Ausführung.</p></article>
+        <article class="competence-card"><div class="competence-number">03</div><h3>Beratung</h3><p>Innovative Lösungen für Altbau, Modernisierung und Detailarbeiten mit Blick auf Funktion, Haltbarkeit und ästhetische Wirkung.</p></article>
       </div>
     </section>
 
@@ -196,11 +192,11 @@
         <div class="floor-solution-copy">
           <span class="eyebrow">Bodenbeläge neu gedacht</span>
           <h2 id="floor-solution-heading">Renovieren, ohne den Boden aufzugeben.</h2>
-          <p>Im gewerblichen Bereich verursacht das Renovieren von Bodenflächen Ausfälle an Einnahmen, da oft temporäre Schließungen in Kauf genommen werden müssen. Bei Mietwohnungen finden bestehende Bodenbeläge oft keinen Gefallen mehr, dürfen aber nicht entfernt werden. Auch im privaten Bereich ist die Erst- und Neuverlegung von keramischen Bodenbelägen erst nach den vorgeschriebenen Trocknungszeiten des Estrichs möglich.</p>
+          <p>Im gewerblichen Bereich verursacht das Renovieren von Bodenflächen Ausfälle an Einnahmen, da oft temporäre Schließungen in Kauf genommen werden müssen. Bei Mietwohnungen finden sich häufig ähnliche Herausforderungen: Die vorhandenen Beläge sollen erhalten bleiben, ohne die Nutzung zu stören. Genau hier liegt das Potenzial eines durchdachten Wiederaufnahme-Systems.</p>
         </div>
         <div class="floor-solution-answer">
           <h3>Die Lösung: Ein Wiederaufnahme-System</h3>
-          <p>Es eignet sich zum Überfliesen von Bodenbelägen aller Art sowie auf Estrich und Unterbodenkonstruktionen. Aktuelle Bodenbeläge können erhalten werden, bleiben geschützt und bei Bedarf kann der Belagsbaustoff rückstandsfrei wieder in die Ursprungsform zurückgebaut werden.</p>
+          <p>Es eignet sich zum Überfliesen von Bodenbelägen aller Art sowie auf Estrich und Unterbodenkonstruktionen. Aktuelle Bodenbeläge können erhalten werden, bleiben geschützt und bei Bedarf später wieder entnommen beziehungsweise weiterverwendet.</p>
         </div>
       </div>
     </section>
@@ -230,6 +226,8 @@
         <figure class="gallery-card"><div class="gallery-image"><img src="./IMG_2270.HEIC" alt="Natursteinprojekt" /></div><figcaption class="gallery-caption">Naturstein</figcaption></figure>
         <figure class="gallery-card"><div class="gallery-image"><img src="./IMG_1605.jpg" alt="Bad mit Spiegel" /></div><figcaption class="gallery-caption">Bad mit Spiegel</figcaption></figure>
         <figure class="gallery-card"><div class="gallery-image"><img src="./IMG_1606.jpg" alt="Dusche und Badewanne" /></div><figcaption class="gallery-caption">Dusche &amp; Badewanne</figcaption></figure>
+        <figure class="gallery-card"><div class="gallery-image"><img src="./image-1.jpg" alt="Badezimmer mit Waschbecken und Arbeitsplatte" /></div><figcaption class="gallery-caption">Badezimmer-Aufbau</figcaption></figure>
+        <figure class="gallery-card"><div class="gallery-image"><img src="./image-2.jpg" alt="Marmorwand mit Badewanne" /></div><figcaption class="gallery-caption">Marmorwand</figcaption></figure>
       </div>
     </section>
 
