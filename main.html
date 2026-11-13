@@ -19,7 +19,7 @@
       html { scroll-behavior: smooth; }
       body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); }
       a { text-decoration: none; }
-      header { background: linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7)),url('./terrazo.jpg'); background-size: cover; background-position: center; border-bottom: 1px solid rgba(0,0,0,.05); }
+      header { background: linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7)),url('./terrazo.jpg'); background-size: cover; background-position: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
       .nav { max-width: 1200px; margin: 0 auto; padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; }
       .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.2rem; color: #111; }
       .logo-box { width: 42px; height: 42px; background: linear-gradient(135deg,grey,darkgrey); display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; font-weight: 700; border-radius: 12px; }
@@ -95,7 +95,19 @@
       .screed-detail-label { display: block; margin-bottom: 10px; color: rgba(255,255,255,.72); font-size: .95rem; }
       .screed-detail strong { font-size: clamp(1.7rem,3.5vw,2.4rem); letter-spacing: -.04em; }
       .screed-note { margin-top: 22px; color: rgba(255,255,255,.68); font-size: .88rem; line-height: 1.6; }
-      .gallery-section { margin-bottom: 100px; }
+      .gallery-section {
+        position: relative;
+        isolation: isolate;
+        margin-bottom: 100px;
+      }
+      .gallery-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: url('./fliesen_maler.jpg') center / cover no-repeat;
+        opacity: 0.7;
+      }
       .gallery-grid { column-count: 4; column-gap: 20px; }
       .gallery-card { display: inline-block; width: 100%; margin: 0 0 20px; background: rgba(255,255,255,.75); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: 0 18px 32px rgba(17,17,17,.04); }
       .gallery-image { position: relative; width: 100%; overflow: hidden; background: linear-gradient(135deg,#ece7df,#d9d2ca); }
@@ -193,7 +205,7 @@
       <div class="competence-header"><span class="eyebrow">Kompetenz</span><h2>Arbeitsweise</h2></div>
       <div class="competence-grid">
         <article class="competence-card"><div class="competence-number">01</div><h3>Arbeit nach Maß</h3><p>Präzise Verlegung von Boden- und Wandfliesen mit Fokus auf saubere Linien, exakte Fugen und langlebige Ergebnisse.</p></article>
-        <article class="competence-card"><div class="competence-number">02</div><h3>Abdichten nach DIN-Norm 18534</h3><p>Ein ganzheitliches Abdichtsystem erfordert höchste Qualitätsanforderungen – von der Planung bis zur Ausführung.</p></article>
+        <article class="competence-card"><div class="competence-number">02</div><h3>Abdichten nach DIN-Norm 18534</h3><p>Ein ganzheitliches Abdichtsystem erfordert höchste Qualitätsanforderungen bei der Verarbeitung und Langlebigkeit.</p></article>
         <article class="competence-card"><div class="competence-number">03</div><h3>Beratung</h3><p>Innovative Lösungen für Altbau, Modernisierung und Detailarbeiten mit Blick auf Funktion, Haltbarkeit und Ästhetik.</p></article>
       </div>
     </section>
@@ -203,11 +215,11 @@
         <div class="floor-solution-copy">
           <span class="eyebrow">Bodenbeläge neu gedacht</span>
           <h2 id="floor-solution-heading">Renovieren, ohne den Boden aufzugeben.</h2>
-          <p>Im gewerblichen Bereich verursacht das Renovieren von Bodenflächen Ausfälle an Einnahmen, da oft temporäre Schließungen in Kauf genommen werden müssen. Bei Mietwohnungen finden sich häufig ältere, aber funktionale Bodenbeläge, die unter einer neuen Oberfläche erhalten und geschützt werden können. Durch ein Wiederaufnahmesystem lassen sich diese Beläge überfliesen und spätere Umbauten oder Anpassungen deutlich vereinfachen.</p>
+          <p>Im gewerblichen Bereich verursacht das Renovieren von Bodenflächen Ausfälle an Einnahmen, da oft temporäre Schließungen in Kauf genommen werden müssen. Bei Mietwohnungen finden sich häufig Fälle, in denen bestehende Böden erhalten, geschützt und durch neue Oberflächen ergänzt werden sollen, ohne den gesamten Untergrund auszutauschen.</p>
         </div>
         <div class="floor-solution-answer">
           <h3>Die Lösung: Ein Wiederaufnahme-System</h3>
-          <p>Es eignet sich zum Überfliesen von Bodenbelägen aller Art sowie auf Estrich und Unterbodenkonstruktionen. Aktuelle Bodenbeläge können erhalten werden, bleiben geschützt und bei Bedarf später wieder entfernt werden.</p>
+          <p>Es eignet sich zum Überfliesen von Bodenbelägen aller Art sowie auf Estrich und Unterbodenkonstruktionen. Aktuelle Bodenbeläge können erhalten werden, bleiben geschützt und bei Bedarf wieder entnommen werden.</p>
         </div>
       </div>
     </section>
